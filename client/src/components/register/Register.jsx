@@ -1,4 +1,7 @@
-export default function Register() {
+export default function Register({
+    user,
+    onRegister
+}) {
 
     const registerSubmit = (formData) => {
         const email = formData.get("email");
@@ -13,6 +16,9 @@ export default function Register() {
         if(password !== confirmPassword) {
             return alert("Password missmatched!")
         }
+
+        // Register User
+        onRegister(email)
     }
 
     return(
