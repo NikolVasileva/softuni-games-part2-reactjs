@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router";
 
-export default function DetailsComments() {
+export default function DetailsComments({
+    refresh
+}) {
     const [comments, setComments] = useState([]);
     const { gameId } = useParams();
 
@@ -15,7 +17,7 @@ export default function DetailsComments() {
                 setComments(gameComments);
             })
             .catch(err => console.log(err));
-    }, [gameId]);
+    }, [gameId, refresh]);
     
 
     return(

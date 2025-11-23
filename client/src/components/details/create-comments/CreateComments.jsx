@@ -3,6 +3,7 @@ import { useParams } from "react-router"
 
 export default function CreateComments({
     user,
+    onCreate
 }) {
 
     const { gameId } = useParams();
@@ -26,6 +27,8 @@ export default function CreateComments({
                 })
             });
             await response.json();
+            setComment('');
+            onCreate()
 
         } catch (err) {
             alert(err.message)

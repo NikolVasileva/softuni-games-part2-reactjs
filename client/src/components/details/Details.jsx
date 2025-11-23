@@ -8,6 +8,7 @@ export default function Details({
 }) {
     const {gameId} = useParams();
     const [game, setGame] = useState({});
+    const [refresh, setRefresh] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -36,6 +37,10 @@ export default function Details({
             alert("You can't delete the game: ", err.message)
         }
     };
+
+    const refreshHandler = () => {
+        setRefresh(state => !state)
+    }
 
     return (
         <section id="game-details">
@@ -78,10 +83,10 @@ export default function Details({
                     {/* <Link to={`/games/${gameId}/delete`} className="button">Delete</Link> */}
                     <button className="button" onClick={deleteGameHandler}>Delete</button>
                 </div>
-                <DetailsComments />
+                <DetailsComments refresh={refresh}/>
 
             </div>
-            {user && <CreateComments user={user}/>}
+            {user && <CreateComments user={user} onCreate={refreshHandler} />}
         </section>
     )
 }
