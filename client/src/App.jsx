@@ -6,10 +6,11 @@ import Footer from "./components/footer/Footer.jsx"
 import Home from "./components/home/Home.jsx"
 import Catalog from "./components/catalog/Catalog.jsx"
 import Details from "./components/details/Details.jsx"
-import GameCreate from "./game-create/GameCreate.jsx"
+import GameCreate from "./components/game-create/GameCreate.jsx"
 import Register from "./components/register/Register.jsx"
 import Login from "./components/login/Login.jsx"
 import Logout from "./components/logout/Logout.jsx"
+import Edit from "./components/edit/Edit.jsx"
 
 function App() {
     const [registerdUsers, setRegisteredUsers] = useState([]);
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/games" element={<Catalog />} />
                 <Route path="/games/:gameId/details" element={<Details />} />
+                <Route path="/games/:gameId/edit" element={<Edit />} />
                 <Route path="/games/create" element={<GameCreate />} />
                 <Route path="/register" element={<Register onRegister={registerHandler} />} />
                 <Route path="/login" element={<Login onLogin={loginHandler} />} />
