@@ -3,7 +3,9 @@ import { Link, useNavigate, useParams } from "react-router"
 import CreateComments from "./create-comments/CreateComments";
 import DetailsComments from "./details-comments/DetailsComments";
 
-export default function Details() {
+export default function Details({
+    user,
+}) {
     const {gameId} = useParams();
     const [game, setGame] = useState({});
     const navigate = useNavigate()
@@ -79,7 +81,7 @@ export default function Details() {
                 <DetailsComments />
 
             </div>
-            <CreateComments />
+            <CreateComments user={user}/>
         </section>
     )
 }
