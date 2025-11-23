@@ -20,9 +20,12 @@ function App() {
             throw new Error('Email is taken!');
         }
 
-        setRegisteredUsers(state => [...state, { email, password }]);
+        const newUser = { email, password };
 
-        // TODO Login user after register
+        setRegisteredUsers(state => [...state, newUser]);
+
+        // Login user after register
+        setUser(newUser);
     };
 
     const loginHandler = (email, password) => {
