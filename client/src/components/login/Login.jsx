@@ -1,4 +1,6 @@
-export default function Login() {
+export default function Login({
+    onLogin
+}) {
     return(
         <section id="login-page">
 
